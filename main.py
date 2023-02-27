@@ -1,18 +1,34 @@
+from numbers import Number
 import re
 from random import randint
 
 
-def createPassword():
-    index = 0
-    regex = "(A&1B2C3D4E5F_+6G7H8I9@J8b7c6d5e4f2g1hijklmnopqr1234#56stuvwxyzKLMNOPQRSTUVWXYZ)"
+class CreatePassword:
+    regex = ""
     password = ""
-    for i in regex:
-        if index < 20:
-            password += regex[randint(0, 60)]
-            index += 1
+    password_join = ""
 
-    return password
+    def __init__(self, string):
+        self.regex = string
+
+    def sortPassword(self):
+        self.password = self.regex[randint(0, 20)]
+        self.password += ''.join(self.regex[randint(0, 20)] for i in range(19))
+        return self.password
+
+    def finalPassword(self):
+        if not self.password[0].isalpha():
+            return self.sortPassword()
+        else:
+            return self.password
+
+
+    def getPwdJoin(self):
+        print(self.password)
 
 
 if __name__ == '__main__':
-   createPassword()
+    myPwd = CreatePassword("123456789abcdefghijklmnopqrstuvwxyz")
+    myPwd.sortPassword()
+    myPwd.finalPassword()
+    myPwd.getPwdJoin()

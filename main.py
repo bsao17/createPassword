@@ -28,7 +28,7 @@ class CreatePassword:
             return self.password
 
     def getPwdJoin(self):
-        print(f"Voici votre mot de passe \" {self.password} \" qui comporte {len(self.password)} signes")
+        print(f"Here the password \" {self.password} \" that comport {len(self.password)} signs")
 
 
 @app.command()

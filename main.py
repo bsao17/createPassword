@@ -1,4 +1,9 @@
 from random import randint
+import typer
+
+app = typer.Typer()
+
+regex = " 123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_"
 
 
 class CreatePassword:
@@ -6,7 +11,7 @@ class CreatePassword:
     password = ""
     nbr = 0
 
-    def __init__(self, string, nbr):
+    def __init__(self, nbr: int, string: str = regex):
         self.item = string
         self.nbr = nbr
 
@@ -23,9 +28,17 @@ class CreatePassword:
             return self.password
 
     def getPwdJoin(self):
-        print(self.password, len(self.password))
+        print(f"Voici votre mot de passe \" {self.password} \" qui comporte {len(self.password)} signes")
+
+
+@app.command()
+def newPassword(number: int = typer.Option(20, help="le nombre de signe par défaut est de 20")):
+    if number:
+        typer.confirm(f"The password will be {number} signs, [it's OK]", abort=True)
+        myPwd = CreatePassword(number)
+        myPwd.complexPassword()
+        myPwd.getPwdJoin()
+
 
 if __name__ == '__main__':
-    myPwd = CreatePassword("123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_", 30)
-    myPwd.complexPassword()
-    myPwd.getPwdJoin()
+    app()

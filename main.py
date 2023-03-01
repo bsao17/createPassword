@@ -1,4 +1,5 @@
 from CreatePassord import *
+from passwordUi import *
 
 @app.command()
 def newPassword(number: int = typer.Option(20, help="le nombre de signe par défaut est de 20")):
@@ -10,4 +11,5 @@ def newPassword(number: int = typer.Option(20, help="le nombre de signe par déf
 
 
 if __name__ == '__main__':
+    app.exec_()
     app()

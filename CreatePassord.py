@@ -3,7 +3,7 @@ import typer
 
 app = typer.Typer()
 
-regex = " 123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_"
+regex = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_"
 
 
 class CreatePassword:

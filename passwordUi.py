@@ -1,17 +1,15 @@
-from PySide6 import QtWidgets
+from PySide6.QtWidgets import QApplication, QWidget
 from CreatePassord import *
 
 
-class App(QtWidgets.QWidget):
-    def __int__(self):
+class MainWindow(QWidget):
+    def __init__(self):
         super().__init__()
+        self.setWindowTitle("Complex Password")
+        self.setFixedSize(600, 200)
 
 
-app = QtWidgets.QApplication([])
-win = App()
+app = QApplication()
+win = MainWindow()
 win.show()
-
-if __name__ == '__main__':
-    app.exec_()
-
-
+app.exec()

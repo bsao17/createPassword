@@ -11,7 +11,7 @@ class CreatePassword:
     password = ""
     nbr = 0
 
-    def __init__(self, nbr: int, string: str = regex):
+    def __init__(self, nbr: int = 20, string: str = regex):
         self.item = string
         self.nbr = nbr
 

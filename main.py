@@ -11,5 +11,4 @@ def newPassword(number: int = typer.Option(20, help="le nombre de signe par déf
 
 
 if __name__ == '__main__':
-    app.exec_()
     app()

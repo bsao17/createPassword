@@ -6,16 +6,27 @@ from CreatePassord import *
 
 class MainWindow(Ui_Dialog, QMainWindow, QDialog):
     def __init__(self):
-        super(MainWindow, self).__init__()
+        super(MainWindow, self).__init__(parent=None)
         self.setupUi(self)
+        button = self.buttons
+        button.clicked.connect(self.retrieve_number)
+
+
         self.nbr = ""
         char = ""
 
     def retrieve_number(self):
         self.nbr = self.char_size.text()
+        print(self.nbr)
 
     def retrieve_char(self):
-        regex = self.input_char.text()
+        print(self.input_char)
+
+    def reset(self):
+        self.input_char = ""
+
+    def apply(self):
+        print("apply Ok")
 
 
 """
@@ -31,3 +42,4 @@ win.show()
 
 if __name__ == '__main__':
     app.exec()
+

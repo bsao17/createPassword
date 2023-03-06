@@ -1,7 +1,5 @@
 from random import randint
-import typer
 
-app = typer.Typer()
 
 regex = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_"
 

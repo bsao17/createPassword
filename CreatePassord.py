@@ -14,7 +14,7 @@ class CreatePassword:
     def __init__(self, nbr: int = 20, string: str = regex):
         self.item = string
         self.nbr = nbr
-
+   
     def iterPassword(self):
         self.password = self.item[randint(0, len(self.item))]
         self.password += ''.join(self.item[randint(0, self.nbr)] for i in range(self.nbr - 1))

@@ -9,7 +9,6 @@ class MainWindow(Ui_Dialog, QMainWindow, QDialog):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         self.nbr = ""
-        char = ""
 
     def retrieve_number(self):
         self.nbr = self.char_size.text()

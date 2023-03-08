@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
 from UI.ui_password import Ui_Dialog
 import keyboard
 from CreatePassord import *

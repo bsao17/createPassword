@@ -21,8 +21,10 @@ class CreatePassword:
     def complexPassword(self):
         self.iterPassword()
         if not self.password[0].isalpha():
+            print(self.iterPassword())
             return self.iterPassword()
         else:
+            print(self.password)
             return self.password
 
     def getPwdJoin(self):

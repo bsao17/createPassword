@@ -7,15 +7,13 @@ regex = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_"
 class CreatePassword:
     item = ""
     password = ""
-    nbr = 0
 
-    def __init__(self, nbr: int = 20, string: str = regex):
-        self.item = string
-        self.nbr = nbr
+    def __init__(self, item: str = regex):
+        self.item = item
    
     def iterPassword(self):
-        self.password = self.item[randint(0, len(self.item))]
-        self.password += ''.join(self.item[randint(0, self.nbr)] for i in range(self.nbr - 1))
+        self.password = self.item[randint(0, len(self.item) - 1)]
+        self.password = ''.join(self.item[randint(0, len(self.item) - 2)] for i in range(len(self.item)))
         return self.password
 
     def complexPassword(self):
@@ -26,6 +24,3 @@ class CreatePassword:
         else:
             print(self.password)
             return self.password
-
-    def getPwdJoin(self):
-        print(f"Here the password \"{self.password}\" that comport {len(self.password)} signs")

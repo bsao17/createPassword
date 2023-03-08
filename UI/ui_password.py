@@ -88,18 +88,8 @@ class Ui_Dialog(object):
 
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.char_size_label = QLabel(self.verticalLayoutWidget)
-        self.char_size_label.setObjectName(u"char_size_label")
-        self.char_size_label.setAlignment(Qt.AlignBottom|Qt.AlignJustify)
 
-        self.verticalLayout_3.addWidget(self.char_size_label)
 
-        self.char_size = QSpinBox(self.verticalLayoutWidget)
-        self.char_size.setObjectName(u"char_size")
-        self.char_size.setCursor(QCursor(Qt.ArrowCursor))
-        self.char_size.setMouseTracking(False)
-
-        self.verticalLayout_3.addWidget(self.char_size)
 
 
         self.horizontalLayout.addLayout(self.verticalLayout_3)
@@ -156,7 +146,6 @@ class Ui_Dialog(object):
         self.input_char_label.setText(QCoreApplication.translate("Dialog", u"Entrer les caract\u00e8res qui composeront votre mot de passe", None))
         self.default_radio.setText(QCoreApplication.translate("Dialog", u"Utiliser les valeurs par d\u00e9faut", None))
         self.char_radio.setText(QCoreApplication.translate("Dialog", u"Utiliser mes caract\u00e8res", None))
-        self.char_size_label.setText(QCoreApplication.translate("Dialog", u"Taille du mot de passe", None))
         self.password_display_label.setText(QCoreApplication.translate("Dialog", u"Voici votre nouveau mot de passe complexe", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"Cr\u00e9er", None))
         self.pushButton_2.setText(QCoreApplication.translate("Dialog", u"Effacer", None))

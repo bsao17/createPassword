@@ -10,20 +10,22 @@ from CreatePassord import *
 class MainWindow(Ui_Dialog, QMainWindow, QDialog):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.setWindowTitle("Complex Password Lab")
         self.setupUi(self)
         self.regex = regex
         self.default_radio.setChecked(True)
+        self.pushButton.clicked.connect(self.print_default_password)
 
     def print_default_password(self):
-        if self.default_radio.isChecked():
-            self.pushButton.clicked.connect(self.createPassword)
+        password = self.createPassword()
+        self.password_display.setPlainText(password)
 
-    def retrieve_number(self):
-        self.nbr = self.char_size.text()
+    def clear_password(self):
+        self.password_display.clear()
 
     def retrieve_char(self):
         if self.char_radio.isChecked():
-            regex = win.input_char.text()
+            regex = self.input_char.text()
             print(regex)
 
     def createPassword(self):
@@ -44,4 +46,5 @@ win.show()
 if __name__ == '__main__':
     keyboard.on_press(lambda input: win.retrieve_char)
     win.print_default_password()
+    win.pushButton_2.clicked.connect(win.clear_password())
     app.exec()

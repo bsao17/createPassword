@@ -1,3 +1,4 @@
+
 import keyboard
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
 from UI.ui_password import Ui_Dialog

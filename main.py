@@ -1,6 +1,6 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QWidget
-from UI.ui_password import Ui_Dialog
 import keyboard
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
+from UI.ui_password import Ui_Dialog
 from CreatePassord import *
 
 
@@ -10,28 +10,27 @@ from CreatePassord import *
 class MainWindow(Ui_Dialog, QMainWindow, QDialog):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.input_char = ""
+        self.setWindowTitle("Complex Password Lab")
         self.setupUi(self)
-        title = self.setWindowTitle("Complex Password Lab")
-        button = self.buttons
-        button.accepted.connect(self.retrieve_number)
-        cancel = button.rejected
-        cancel.connect(self.apply)
+        self.regex = regex
+        self.default_radio.setChecked(True)
+        self.pushButton.clicked.connect(self.print_default_password)
 
-        self.nbr = ""
+    def print_default_password(self):
+        password = self.createPassword()
+        self.password_display.setPlainText(password)
 
-    def retrieve_number(self):
-        print(self.char_size.text)
+    def clear_password(self):
+        self.password_display.clear()
 
     def retrieve_char(self):
-        regex = self.input_char.text()
-        print(regex)
+        if self.char_radio.isChecked():
+            regex = self.input_char.text()
+            print(regex)
 
-    def reset(self):
-        pass
-
-    def apply(self):
-        self.retrieve_char()
+    def createPassword(self):
+        password = CreatePassword()
+        return password.complexPassword()
 
 
 """
@@ -40,9 +39,12 @@ class MainWindow(Ui_Dialog, QMainWindow, QDialog):
     win = loader.load("UI/ui_password.ui", None)
 """
 
+app = QApplication()
+win = MainWindow()
+win.show()
+
 if __name__ == '__main__':
-    app = QApplication()
-    win = MainWindow()
-    win.show()
-    keyboard.on_press(lambda a: win.retrieve_char())
+    keyboard.on_press(lambda input: win.retrieve_char)
+    win.print_default_password()
+    win.pushButton_2.clicked.connect(win.clear_password())
     app.exec()

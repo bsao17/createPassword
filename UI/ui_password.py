@@ -9,17 +9,16 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-                            QMetaObject, QObject, QPoint, QRect,
-                            QSize, QTime, QUrl, Qt)
+    QMetaObject, QRect,
+    QSize, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-                           QFont, QFontDatabase, QGradient, QIcon,
-                           QImage, QKeySequence, QLinearGradient, QPainter,
-                           QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-                               QFrame, QHBoxLayout, QLabel, QLineEdit,
-                               QRadioButton, QSizePolicy, QSpacerItem, QSpinBox,
-                               QTextBrowser, QVBoxLayout, QWidget)
-
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QRadioButton,
+    QSizePolicy, QSpacerItem, QSpinBox, QTextBrowser,
+    QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -30,7 +29,7 @@ class Ui_Dialog(object):
         Dialog.setMaximumSize(QSize(500, 450))
         self.verticalLayoutWidget = QWidget(Dialog)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 10, 481, 431))
+        self.verticalLayoutWidget.setGeometry(QRect(10, 10, 481, 361))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -47,7 +46,7 @@ class Ui_Dialog(object):
         self.input_char_label = QLabel(self.verticalLayoutWidget)
         self.input_char_label.setObjectName(u"input_char_label")
         self.input_char_label.setScaledContents(False)
-        self.input_char_label.setAlignment(Qt.AlignBottom | Qt.AlignJustify)
+        self.input_char_label.setAlignment(Qt.AlignBottom|Qt.AlignJustify)
 
         self.verticalLayout_2.addWidget(self.input_char_label)
 
@@ -55,6 +54,7 @@ class Ui_Dialog(object):
         self.input_char.setObjectName(u"input_char")
 
         self.verticalLayout_2.addWidget(self.input_char)
+
 
         self.verticalLayout.addLayout(self.verticalLayout_2)
 
@@ -83,24 +83,17 @@ class Ui_Dialog(object):
 
         self.verticalLayout_5.addWidget(self.char_radio)
 
+
         self.horizontalLayout.addLayout(self.verticalLayout_5)
 
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.char_size_label = QLabel(self.verticalLayoutWidget)
-        self.char_size_label.setObjectName(u"char_size_label")
-        self.char_size_label.setAlignment(Qt.AlignBottom | Qt.AlignJustify)
 
-        self.verticalLayout_3.addWidget(self.char_size_label)
 
-        self.char_size = QSpinBox(self.verticalLayoutWidget)
-        self.char_size.setObjectName(u"char_size")
-        self.char_size.setCursor(QCursor(Qt.ArrowCursor))
-        self.char_size.setMouseTracking(False)
 
-        self.verticalLayout_3.addWidget(self.char_size)
 
         self.horizontalLayout.addLayout(self.verticalLayout_3)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
@@ -131,45 +124,30 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addWidget(self.password_display)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.verticalLayout.addItem(self.horizontalSpacer_2)
-
-        self.buttons = QDialogButtonBox(self.verticalLayoutWidget)
-        self.buttons.setObjectName(u"buttons")
-        self.buttons.setOrientation(Qt.Horizontal)
-        self.buttons.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Ok | QDialogButtonBox.Save)
-        self.buttons.setCenterButtons(True)
-
-        self.verticalLayout.addWidget(self.buttons)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.verticalLayout.addItem(self.horizontalSpacer_4)
-
-        self.line_2 = QFrame(self.verticalLayoutWidget)
-        self.line_2.setObjectName(u"line_2")
-        self.line_2.setFrameShape(QFrame.HLine)
-        self.line_2.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout.addWidget(self.line_2)
+        self.pushButton = QPushButton(Dialog)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(130, 410, 89, 25))
+        self.pushButton_2 = QPushButton(Dialog)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(280, 410, 89, 25))
+        self.line_4 = QFrame(Dialog)
+        self.line_4.setObjectName(u"line_4")
+        self.line_4.setGeometry(QRect(10, 380, 481, 20))
+        self.line_4.setFrameShape(QFrame.HLine)
+        self.line_4.setFrameShadow(QFrame.Sunken)
 
         self.retranslateUi(Dialog)
-        self.buttons.accepted.connect(Dialog.accept)
-        self.buttons.rejected.connect(Dialog.reject)
 
         QMetaObject.connectSlotsByName(Dialog)
-
     # setupUi
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.input_char_label.setText(
-            QCoreApplication.translate("Dialog", u"Entrer les caract\u00e8res qui composeront votre mot de passe",
-                                       None))
+        self.input_char_label.setText(QCoreApplication.translate("Dialog", u"Entrer les caract\u00e8res qui composeront votre mot de passe", None))
         self.default_radio.setText(QCoreApplication.translate("Dialog", u"Utiliser les valeurs par d\u00e9faut", None))
         self.char_radio.setText(QCoreApplication.translate("Dialog", u"Utiliser mes caract\u00e8res", None))
-        self.char_size_label.setText(QCoreApplication.translate("Dialog", u"Taille du mot de passe", None))
-        self.password_display_label.setText(
-            QCoreApplication.translate("Dialog", u"Voici votre nouveau mot de passe complexe", None))
+        self.password_display_label.setText(QCoreApplication.translate("Dialog", u"Voici votre nouveau mot de passe complexe", None))
+        self.pushButton.setText(QCoreApplication.translate("Dialog", u"Cr\u00e9er", None))
+        self.pushButton_2.setText(QCoreApplication.translate("Dialog", u"Effacer", None))
     # retranslateUi
+

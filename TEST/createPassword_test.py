@@ -1,6 +1,7 @@
 import re
 import unittest
-from CreatePassord import CreatePassword
+from CreatePassord import *
+
 
 regex = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@&#$_"
 
